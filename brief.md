@@ -1,5 +1,5 @@
-# ТЕХНИЧЕСКИЙ БРИФ: Лендинг-портфолио цифрового мастера
-*Версия 1.0 | Составлен на основе research.md*
+# ТЕХНИЧЕСКИЙ БРИФ: Лендинг-портфолио — Хололеенко Петр Михайлович
+*Версия 1.1 | Обновлён 2026-05-14 | ИП Хололеенко П.М.*
 
 ---
 
@@ -521,7 +521,7 @@ Primary CTA:
 Secondary:
 ```
 Или напишите напрямую:
-[✉️ email@example.com]   [💬 Telegram: @username]
+[✉️ 3183104@mail.ru]   [💬 Telegram: @petr2108]   [📞 +375 29 652-22-30]
 ```
 
 Форма (опционально, если Calendly не встроен):
@@ -544,7 +544,7 @@ Email _____________
 ```
 [Логотип/имя]   Сайты · Приложения · ИИ-агенты
 
-[GitHub]  [Telegram]  [LinkedIn]        © 2026 [Имя]
+[GitHub]  [Telegram]  [LinkedIn]        © 2026 ИП Хололеенко П.М.
                                          Политика конфиденциальности
 ```
 
@@ -710,10 +710,12 @@ Hover state (desktop):
 ```json
 {
   "@type": "Person",
-  "name": "[Имя]",
+  "name": "Хололеенко Петр Михайлович",
   "jobTitle": "Full-Stack Developer & AI Automation Specialist",
   "url": "https://[домен]",
-  "sameAs": ["https://github.com/...", "https://linkedin.com/in/..."],
+  "email": "3183104@mail.ru",
+  "telephone": "+375296522230",
+  "sameAs": ["https://github.com/Petro2108", "https://t.me/petr2108"],
   "knowsAbout": ["Web Development", "AI Agents", "Automation", "Mobile Apps"]
 }
 ```
@@ -723,8 +725,8 @@ Hover state (desktop):
 ### 6.3 Open Graph и мета-теги
 
 ```html
-<title>[Имя] — Сайты, Приложения и ИИ-агенты для бизнеса</title>
-<meta name="description" content="Строю сайты, веб-приложения и ИИ-системы под ключ. [X]+ проектов, [X] лет опыта. Бесплатный первый звонок." />
+<title>Петр Хололеенко — Сайты, Приложения и ИИ-агенты для бизнеса</title>
+<meta name="description" content="Строю сайты, веб-приложения и ИИ-системы под ключ. Зарегистрированный ИП. Беларусь. Бесплатный первый звонок." />
 <meta property="og:image" content="/og-image.png" /> <!-- 1200×630 -->
 <link rel="canonical" href="https://[домен]/" />
 ```
@@ -773,11 +775,16 @@ Hover state (desktop):
 
 ### 7.4 Данные для контакта
 
-- [ ] Email (профессиональный, не gmail без бренда)
-- [ ] Telegram username
-- [ ] Calendly ссылка (или аналог — Cal.com, TidyCal)
-- [ ] GitHub профиль (актуальный, с активностью)
-- [ ] LinkedIn профиль
+- [x] Email: 3183104@mail.ru
+- [x] Telegram: @petr2108 (https://t.me/petr2108)
+- [x] Телефон: +375 29 652-22-30
+- [x] GitHub: https://github.com/Petro2108
+- [ ] Calendly ссылка (добавить позже — Cal.com, TidyCal)
+- [ ] LinkedIn профиль (создать позже)
+
+**Юридические данные:**
+- Полное название: ИП Хололеенко Петр Михайлович
+- Страна: Республика Беларусь
 
 ---
 
