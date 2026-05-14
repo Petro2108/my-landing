@@ -1788,28 +1788,46 @@
     });
 
     // ── FORM (enhanced) ─────────────────────────────────────────
-    document.getElementById('cf').addEventListener('submit', e => {
+    document.getElementById('cf').addEventListener('submit', async e => {
       e.preventDefault();
       const form = e.target;
       const btn  = form.querySelector('button[type="submit"]');
       const fok  = document.getElementById('fok');
 
-      // Loading state with spinner
+      const name    = document.getElementById('nm').value.trim();
+      const email   = document.getElementById('em').value.trim();
+      const message = document.getElementById('msg').value.trim();
+
       btn.innerHTML = '<span style="display:inline-block;animation:spin .7s linear infinite;font-size:1.1em;margin-right:6px">⟳</span>Отправляем...';
       btn.disabled = true;
 
-      setTimeout(() => {
-        // Fade-out form
+      const text = `🔔 <b>Новая заявка с сайта!</b>\n\n👤 <b>Имя:</b> ${name}\n📧 <b>Email:</b> ${email}\n💬 <b>Сообщение:</b>\n${message || '—'}`;
+
+      function showSuccess() {
         form.style.transition = 'opacity .3s, transform .3s';
         form.style.opacity = '0';
         form.style.transform = 'translateY(-8px) scale(.98)';
+        setTimeout(() => { form.style.display = 'none'; fok.classList.add('show'); fireConfetti(fok); }, 320);
+      }
 
-        setTimeout(() => {
-          form.style.display = 'none';
-          fok.classList.add('show');
-          fireConfetti(fok);
-        }, 320);
-      }, 1100);
+      function showError() {
+        btn.innerHTML = '⚠ Ошибка — попробуйте ещё раз';
+        btn.disabled = false;
+        btn.style.background = '#EF4444';
+        setTimeout(() => { btn.style.background = ''; btn.innerHTML = 'Отправить заявку →'; }, 3500);
+      }
+
+      try {
+        const res = await fetch('https://api.telegram.org/bot8471130210:AAEMn_fWRwRI2QFTRMSCy5qigdmp4ZeNphI/sendMessage', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ chat_id: 1671119500, text, parse_mode: 'HTML' })
+        });
+        const data = await res.json();
+        data.ok ? showSuccess() : showError();
+      } catch {
+        showError();
+      }
     });
 
     function fireConfetti(container) {
