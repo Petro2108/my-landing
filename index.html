@@ -1818,13 +1818,19 @@
       }
 
       try {
-        const res = await fetch('https://api.telegram.org/bot8471130210:AAEMn_fWRwRI2QFTRMSCy5qigdmp4ZeNphI/sendMessage', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ chat_id: 1671119500, text, parse_mode: 'HTML' })
-        });
-        const data = await res.json();
-        data.ok ? showSuccess() : showError();
+        const [tg, w3] = await Promise.all([
+          fetch('https://api.telegram.org/bot8471130210:AAEMn_fWRwRI2QFTRMSCy5qigdmp4ZeNphI/sendMessage', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ chat_id: 1671119500, text, parse_mode: 'HTML' })
+          }).then(r => r.json()),
+          fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ access_key: '7c7014b1-ce95-4dde-80cc-97cdf3117357', name, email, message: message || '—' })
+          }).then(r => r.json())
+        ]);
+        (tg.ok || w3.success) ? showSuccess() : showError();
       } catch {
         showError();
       }
